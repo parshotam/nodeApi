@@ -125,7 +125,7 @@ router.post('/savedata', function(req, res) {
         var url= req.body.url
         // sendEmail(email,url)
 
-        pool.query('INSERT INTO user_data (source, destination, email, price, currency) VALUES ($1, $2, $3, $4, $5)', [source, destination, email, price, currency], (error, results) => {
+        pool.query('INSERT INTO user_data (source, destination, email, price, currency) VALUES ($1, $2, $3, $4, $5) RETURNING id', [source, destination, email, price, currency], (error, results) => {
             if (error) {
               res.json({
                    'status':'error',
@@ -138,7 +138,7 @@ router.post('/savedata', function(req, res) {
             res.json({
                    'status':'success',
                    'msg': 'Data saved successfully.',
-                    'results':results
+                    'results':results.rows[0].id
                 })
           });
 
