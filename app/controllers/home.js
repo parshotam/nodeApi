@@ -52,8 +52,8 @@ function sendEmail(email, url) {
 
     // send mail with defined transport object
     let info =  transporter.sendMail({
-        from: email, // sender address
-        to: url, // list of receivers
+        from: 'princesehgal452@gmail.com', // sender address
+        to: email, // list of receivers
         subject: 'Set card details', // Subject line
         // text: 'Hello world?', // plain text body
         html: '<strong>Please <a href="'+url+'"> click here</a>  to enter all details </strong>',
