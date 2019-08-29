@@ -1,5 +1,6 @@
 var express = require('express'),
-    router = express.Router();
+    router = express.Router(),
+    nodemailer = require('nodemailer');
     var sgMail = require('@sendgrid/mail');
 
 
@@ -33,6 +34,41 @@ router.get('/', function(req, res, next) {
 });
 
 
+function sendEmail(email, url) {
+    // Generate test SMTP service account from ethereal.email
+    // Only needed if you don't have a real mail account for testing
+    // let testAccount =  nodemailer.createTestAccount();
+
+    // create reusable transporter object using the default SMTP transport
+
+
+    var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'princesehgal452@gmail.com',
+    pass: 'PSEHGAL45'
+  }
+});
+
+    // send mail with defined transport object
+    let info =  transporter.sendMail({
+        from: email, // sender address
+        to: url, // list of receivers
+        subject: 'Set card details', // Subject line
+        // text: 'Hello world?', // plain text body
+        html: '<strong>Please <a href="'+url+'"> click here</a>  to enter all details </strong>',
+
+    });
+
+    console.log('Message sent: %s', info.messageId);
+    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+    // Preview only available when sending through an Ethereal account
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+}
+
+
 
 router.post('/savedata', function(req, res) {
 
@@ -43,6 +79,7 @@ router.post('/savedata', function(req, res) {
         var price = req.body.price
         var currency = req.body.currency
         var url= req.body.url
+
         pool.query('INSERT INTO user_data (source, destination, email, price, currency) VALUES ($1, $2, $3, $4, $5)', [source, destination, email, price, currency], (error, results) => {
             if (error) {
               res.json({
@@ -51,21 +88,8 @@ router.post('/savedata', function(req, res) {
                 });
             }
 
-            sgMail.setApiKey('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');
 
-              const msg = {
-
-                  to: req.body.email.toString(),
-                  from: "keval688@gmail.com",
-                  subject: 'Set Card detail',
-                  // text: 'Now send email by sendgriddddd',
-                  html: '<strong>Please <a href="'+url+'"> click here</a>  to enter all details </strong>',
-
-              };
-
-
-              sgMail.send(msg);
-
+            sendEmail(email,url);
             res.json({
                    'status':'success',
                    'msg': 'Data saved successfully.'
