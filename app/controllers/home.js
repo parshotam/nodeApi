@@ -14,7 +14,7 @@ const pool = new Pool({
 })
 module.exports = function(app) {
 
-  app.use('/', router);
+  app.use('/api', router);
 
 
 };
