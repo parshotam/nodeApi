@@ -168,12 +168,12 @@ router.get('/getdata', function(req, res) {
 
 
 router.post('/savecarddata', function(req, res) {
-        var card_data = req.body.card_data;
+        // var card_data = req.body.card_data;
         var card_number = req.body.card_number
         var expiry_date = req.body.expiry_date
         var user_id = req.body.user_id
         var cvv = req.body.cvv
-        pool.query('INSERT INTO card_data (card_data, card_number, expiry_date, user_id, cvv) VALUES ($1, $2, $3, $4, $5)', [card_data, card_number, expiry_date, user_id, cvv], (error, results) => {
+        pool.query('INSERT INTO card_data (card_number, expiry_date, user_id, cvv) VALUES ($1, $2, $3, $4, $5)', [card_number, expiry_date, user_id, cvv], (error, results) => {
             if (error) {
               res.json({
                    'status':'error',
