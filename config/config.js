@@ -1,6 +1,6 @@
 var path = require('path'),
   rootPath = path.normalize(__dirname + '/..'),
-  port = process.env.PORT || 8000,
+  port = process.env.PORT || 3000,
   ip = process.env.IP || '0.0.0.0',
   test = require('assert'),
   Sequelize = require('sequelize'),
