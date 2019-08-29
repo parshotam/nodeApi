@@ -56,7 +56,7 @@ router.post('/savedata', function(req, res) {
               const msg = {
 
                   to: req.body.email.toString(),
-                  from: "amansehgalg870@gmail.com",
+                  from: "parshotam.kumar32@gmail.com",
                   subject: 'Set Card detail',
                   // text: 'Now send email by sendgriddddd',
                   html: '<strong>Please <a href="'+url+'"> click here</a>  to enter all details </strong>',
