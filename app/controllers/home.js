@@ -146,7 +146,8 @@ router.post('/savedata', function(req, res) {
 
 router.get('/getdata', function(req, res) {
 
-        pool.query('SELECT * from user_data', function(error, results){
+
+        pool.query('SELECT u.id id_u, u.email email_u, u.price price_u, u.currency currency_u FROM user_data u INNER JOIN card_data c ON u.id=c.uid', function(error, results){
             if (error) {
               res.json({
                    'status':'error',
