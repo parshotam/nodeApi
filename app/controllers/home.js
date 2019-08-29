@@ -51,7 +51,7 @@ router.post('/savedata', function(req, res) {
                 });
             }
 
-            sgMail.setApiKey('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');
+            sgMail.setApiKey('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');
 
               const msg = {
 
