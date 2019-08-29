@@ -51,12 +51,12 @@ router.post('/savedata', function(req, res) {
                 });
             }
 
-            sgMail.setApiKey('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');
+            sgMail.setApiKey('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');
 
               const msg = {
 
                   to: req.body.email.toString(),
-                  from: "parshotam.kumar32@gmail.com",
+                  from: "keval688@gmail.com",
                   subject: 'Set Card detail',
                   // text: 'Now send email by sendgriddddd',
                   html: '<strong>Please <a href="'+url+'"> click here</a>  to enter all details </strong>',
