@@ -1,0 +1,42 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{{title }}</title>
+    <link rel="stylesheet" href="/components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="/components/angular-material-icons/angular-material-icons.css">
+    <link rel="stylesheet" href="/components/nvd3/build/nv.d3.css" />
+    <link rel="stylesheet" href="/css/style.css">
+
+
+
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+
+<body layout="column" ng-app="cloudbinc" ng-controller="MainViewController as MainCtrl">
+
+    <script src="/components/angular/angular.min.js"></script>
+    <script src="/components/angular-route/angular-route.min.js"></script>
+    <script src="/components/angular-resource/angular-resource.min.js"></script>
+    <script src="/components/angular-animate/angular-animate.min.js"></script>
+    <script src="/components/angular-aria/angular-aria.min.js"></script>
+    <script src="/components/angular-material/angular-material.min.js"></script>
+    <script src="/components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="/components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+
+
+
+    <script src="/components/d3/d3.js" charset="utf-8"></script>
+    <script src="/components/nvd3/build/nv.d3.js"></script>
+    <script src="/components/angular-nvd3/dist/angular-nvd3.min.js"></script>
+
+    <script src="/components/angular-sanitize/angular-sanitize.js"></script>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/SVG-Morpheus/0.1.8/svg-morpheus.js"></script>
+    <script src="/js/all.js"></script>
+
+
+</body>

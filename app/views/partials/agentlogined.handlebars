@@ -1,0 +1,107 @@
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button m0" aria-label="Menu" ng-click="collapsed=!collapsed">
+            <ng-md-icon icon="menu"></ng-md-icon>
+        </md-button>
+
+        <img src="/img/logos/cloudbinc-logo.png" alt="cloudbinc" height="65" width="150" />
+        <!-- <h2><span>cloudbinc <sup class="md-caption">BETA</sup></span></h2> -->
+        <span flex></span>
+        <md-button ng-if="loggedInUser" class="regular hidden-xs" aria-label="User Account">
+            <ng-md-icon icon="account_circle"></ng-md-icon>
+            <md-caption class="md-caption" ng-bind="loggedInUser.username"></md-caption>
+        </md-button>
+        <md-button ng-if="loggedInUser" class="regular" style="min-width: 10px !important" aria-label="User Account" ng-click="MainCtrl.logout()">
+            <ng-md-icon icon="logout"></ng-md-icon>
+            <span class="hidden-xs">Logout</span>
+        </md-button>
+    </div>
+</md-toolbar>
+
+<div layout="row" flex>
+    <md-sidenav  ng-if="loggedInUser" ng-hide="collapsed" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+
+        <md-content flex class="md-default-theme">
+            <ul class="menu-links" flex ng-controller="NavigationCtrl">
+                <li class="" ng-class="{ active: isCurrentPath('/') }">
+                    <md-button class="regular" href="#/" flex>
+                        Calculator
+                    </md-button>
+                </li>
+                <!-- <li ng-class="{ active: isCurrentPath('/quote-list') }">
+                    <md-button class="regular" href="#/quote-list" flex>
+                        Saved Quotes
+                    </md-button>
+                </li> -->
+                <li ng-class="{ active: isCurrentPath('/dashboard') }" > <!-- This is an agent panel element -->
+                    <md-button class="regular" href="#/dashboard" flex>
+                        Saved Quotes
+                        <!-- Dashboard -->
+                    </md-button>
+                </li>
+                <li ng-class="{ active: isCurrentPath('/email-quote') }">
+                    <md-button class="regular" href="#/email-quote" flex>
+                        Email Quote
+                    </md-button>
+                </li>
+                <!-- <li ng-class="{ active: isCurrentPath('/invite') }">
+                    <md-button class="regular" href="#/invite" flex>
+                        Add Agent
+                    </md-button>
+                </li>
+                <li>
+                    <md-button class="regular" href="#/" flex>
+                        Analysis
+                    </md-button>
+                </li> -->
+
+                <!-- All above links are belong to simple user  -->
+
+                <!-- All below links are belong to agent user  -->
+
+                <!-- <li ng-class="{ active: isCurrentPath('/dashboard') }" >
+                    <md-button class="regular" href="#/dashboard" flex>
+                        Dashboard
+                    </md-button>
+                </li> -->
+                <li ng-class="{ active: isCurrentPath('/profile') }">
+                    <md-button class="regular" href="#/profile/" flex>
+                        OA/DA Profile
+                    </md-button>
+                </li>
+                <li ng-class="{ active: isCurrentPath('/freight-profile') }">
+                    <md-button class="regular" href="#/freight-profile/" flex>
+                        Freight Profile
+                    </md-button>
+                </li>
+                <li ng-if="isAnalticsUser()" ng-class="{ active: isCurrentPath('/analytics') }">
+                    <md-button class="regular" href="#/analytics" flex>
+                        Analysis
+                    </md-button>
+                </li>
+                <li ng-if="isNetworkUser()" ng-class="{ active: isCurrentPath('/analytics') }" >
+                    <md-button class="regular" href="network-ui#/" flex>
+                        Agent List
+                    </md-button>
+                </li>
+                <!-- <li ng-class="{ active: isCurrentPath('/tariffs') }">
+                    <md-button class="regular"  href="#/tariffs" flex>
+                        Add Tariff
+                    </md-button>
+                </li>
+                <li ng-class="{ active: isCurrentPath('/tariff-detail') }" >
+                    <md-button class="regular" href="#/tariff-detail" flex>
+                        Tariff Details
+                    </md-button>
+                </li>
+                <li ng-class="{ active: isCurrentPath('/freighttariffs') }" >
+                    <md-button class="regular" href="#/freighttariffs" flex>
+                        Freight Tariff
+                    </md-button>
+                </li> -->
+            </ul>
+        </md-content>
+    </md-sidenav>
+    <md-content ng-view layout="column" layout-fill class="main-view" flex>
+    </md-content>
+</div>

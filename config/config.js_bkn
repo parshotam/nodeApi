@@ -1,0 +1,27 @@
+var path = require('path'),
+  rootPath = path.normalize(__dirname + '/..'),
+  port = process.env.PORT || 3000,
+  ip = process.env.IP || '0.0.0.0',
+  test = require('assert'),
+  url = 'mongodb://cloudbinc.com:27017',
+  dbName = 'testdb',
+  MongoClient = require('mongodb').MongoClient,
+  testDb;
+
+config = {
+  root: rootPath,
+  app: {
+    name: 'CloudBinc'
+  } ,
+
+  port: port,
+  ip: ip,
+// Connection url
+
+// Connect using MongoClient
+  db :url,
+  sequelize: {
+    logger: false
+  },
+}
+module.exports = config;
