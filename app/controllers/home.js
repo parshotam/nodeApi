@@ -137,7 +137,8 @@ router.post('/savedata', function(req, res) {
 
             res.json({
                    'status':'success',
-                   'msg': 'Data saved successfully.'
+                   'msg': 'Data saved successfully.',
+                    'results':results
                 })
           });
 
